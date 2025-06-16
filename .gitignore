@@ -1,0 +1,48 @@
+# Ren'Py cache files
+cache/
+
+# Ren'Py compiled files
+*.rpyc
+*.rpymc
+
+# Ren'Py save files
+saves/
+
+# Ren'Py distribution files
+*.zip
+*.tar.bz2
+*.dmg
+*.exe
+*.app/
+
+# Ren'Py log files
+log.txt
+traceback.txt
+errors.txt
+
+# IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Python bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution build directories
+/game/build/
+
+# Temporary files created by some editors
+*~
+*.swp
+*.swo
+
+# User-specific configuration (if any, like .env for API keys)
+# .env
