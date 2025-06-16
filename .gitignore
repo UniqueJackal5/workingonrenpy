@@ -25,6 +25,7 @@ errors.txt
 .idea/
 *.sublime-project
 *.sublime-workspace
+.trae/
 
 # OS specific files
 .DS_Store
