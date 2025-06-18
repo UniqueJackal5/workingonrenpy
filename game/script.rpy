@@ -19,10 +19,10 @@ label start:
 
 label act1_highschool_intro:
     call screen name_input
-    jump classroom_intro from _call_jump
+    jump classroom_intro
 
 label act1_festival:
-    call festival_preparation from _call_festival
+    call festival_preparation
     if anusha_points >= 3:
         jump cultural_bonding
     elif ritesh_points >= 3:

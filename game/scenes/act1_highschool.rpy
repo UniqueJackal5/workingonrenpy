@@ -98,3 +98,35 @@ label highschool_day_1:
             jump highschool_day_1_ritesh_path
 
     return
+
+label classroom_intro:
+    scene bg_classroom with dissolve
+    show anusha uniform neutral at center
+
+    anusha "First day jitters? This seat's been empty all semester..."
+    samir "Mind if I...?"
+
+    menu:
+        "Take the seat next to Anusha":
+            $ anusha_points += 1
+            jump library_study_scene
+
+        "Sit near the window alone":
+            $ ritesh_points += 1
+            jump cafeteria_intro
+
+label cafeteria_intro:
+    scene bg_cafeteria with fade
+    show ritesh uniform smile at center
+
+    ritesh "Saving seats is against school rules! Mind if I join you?"
+    samir "..."
+
+    menu:
+        "Slide over to make space":
+            $ ritesh_points += 2
+            jump sports_club_scene
+
+        "Pretend to be occupied":
+            $ nina_points += 1
+            jump courtyard_scene
