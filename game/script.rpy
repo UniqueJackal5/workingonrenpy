@@ -12,10 +12,29 @@ define player = Character("Samir") # Default name, will be updated
 default player_name = "Samir"
 
 label start:
-    # Define the player character's name.
-    $ player_name = renpy.call_screen("name_input") # Call the screen and get the returned value
-    $ player.name = player_name
-    jump act1_highschool_start
+    # Initial setup
+    scene bg_highschool_exterior
+    "Freshman year begins..."
+    jump act1_highschool_intro
+
+label act1_highschool_intro:
+    call screen name_input
+    jump classroom_intro from _call_jump
+
+label act1_festival:
+    call festival_preparation from _call_festival
+    if anusha_points >= 3:
+        jump cultural_bonding
+    elif ritesh_points >= 3:
+        jump tech_collaboration
+    else:
+        jump festival_wrapup
+
+label act1_transition:
+    # Shared post-festival scene
+    scene bg_school_gate
+    "As the semester ends..."
+    jump act2_college_intro
 
     # This ends the game.
     return
