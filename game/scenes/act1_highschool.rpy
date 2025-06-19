@@ -130,3 +130,67 @@ label cafeteria_intro:
         "Pretend to be occupied":
             $ nina_points += 1
             jump courtyard_scene
+
+label sports_club_scene:
+    scene bg_gymnasium with fade
+    show ritesh sports_uniform smile at center
+
+    ritesh "First years never last through warmups! Bet you can't handle 10 laps?"
+    samir "..."
+
+    menu:
+        "Accept the challenge":
+            $ ritesh_points += 3
+            jump festival_committee
+
+        "Politely decline":
+            $ nina_points += 1
+            jump music_room_scene
+
+label courtyard_scene:
+    scene bg_courtyard with dissolve
+    show nina uniform thoughtful at center
+
+    nina "That tree's been here since our parents' time... Makes you think, doesn't it?"
+    samir "..."
+
+    menu:
+        "Share a personal memory":
+            $ nina_points += 2
+            jump art_club_scene
+
+        "Change the subject":
+            $ anusha_points += 1
+            jump classroom_study_group
+
+label library_study_scene:
+    scene bg_library with fade
+    show anusha uniform glasses at center
+
+    anusha "This calculus problem has me stuck... Mind brainstorming together?"
+    samir "..."
+
+    menu:
+        "Work through it step-by-step":
+            $ anusha_points += 2
+            jump exam_prep_scene
+
+        "Suggest taking a break":
+            $ ritesh_points += 1
+            jump rooftop_scene
+
+label art_club_scene:
+    scene bg_art_room with dissolve
+    show nina apron paintbrush at center
+
+    nina "This mural needs something... Maybe your perspective?"
+    samir "..."
+
+    menu:
+        "Add abstract elements":
+            $ nina_points += 3
+            jump gallery_visit
+
+        "Keep traditional style":
+            $ anusha_points += 2
+            jump cultural_event
