@@ -1,196 +1,134 @@
-# Act 1: High School
-
-label act1_highschool_start:
-    # The game starts here for Act 1.
-
-    "This is the beginning of Act 1: High School."
-
-    call highschool_day_1 from _call_highschool_day_1
-
-    return
-
-label highschool_day_1_anusha_path:
-    "I walk over to Anusha's group, and she immediately pulls me into their conversation."
-    an "So, [player_name], did you do anything fun this summer?"
-    player "Just the usual. Spent a lot of time reading, actually."
-    an "Oh, really? What did you read?"
-    an "So, [player_name], did you do anything fun this summer?"
-    player "Just the usual. Spent a lot of time reading, actually."
-    an "Oh, really? What did you read?"
-
-    menu:
-        "Mention a classic novel":
-            player "I reread 'Pride and Prejudice.' It's surprisingly good."
-            an "Oh, I love that one! Elizabeth Bennet is such a strong character."
-            $ change_affinity("anusha", 1)
-        "Talk about a new fantasy series":
-            player "I got really into 'The Aethelgard Chronicles.' It's a new fantasy series."
-            an "Ooh, I haven't heard of that! Is it good?"
-            $ change_affinity("anusha", 0)
-
-    "The bell rings, signaling the start of the first class."
-    "We all head inside, chatting about our schedules."
-    jump highschool_day_1_end
-
-label highschool_day_1_ritesh_path:
-    "I approach Ritesh, who looks up from his book as I get closer."
-    player "Hey, Ritesh. What are you reading?"
-    ri "Oh, just a classic. 'Pride and Prejudice.' Have you read it?"
-    player "I've heard of it. Is it any good?"
-    ri "It's quite insightful, actually. A keen observation of human nature and societal norms."
-    player "Hey, Ritesh. What are you reading?"
-    ri "Oh, just a classic. 'Pride and Prejudice.' Have you read it?"
-    player "I've heard of it. Is it any good?"
-    ri "It's quite insightful, actually. A keen observation of human nature and societal norms."
-
-    menu:
-        "Agree with his assessment":
-            player "I can see that. It's interesting how relevant some of those observations still are."
-            ri "Indeed. Human nature, it seems, changes little over time."
-            $ change_affinity("ritesh", 1)
-        "Express a preference for modern literature":
-            player "I prefer more modern stories, personally. Something with a bit more action."
-            ri "Ah, I understand. To each their own, I suppose."
-            $ change_affinity("ritesh", 0)
-
-    "The bell rings, signaling the start of the first class."
-    "We walk to class together, discussing the book."
-    jump highschool_day_1_end
-
-label highschool_day_1_end:
-    "The first day of high school has officially begun."
-    # Transition to next scene or day
-    return
-
-label highschool_day_1:
-    scene bg highschool_exterior # Placeholder background
-    with fade
-
-    "It's the first day of high school. The morning sun casts long shadows across the school grounds."
-
-    # Show player character (placeholder)
-    show player_sprite at center # Assuming 'player_sprite' is defined elsewhere
-
-    player "(Another year, another chance to make something of myself. Or at least, survive.)"
-
-    "As I walk towards the main entrance, I spot Anusha by the lockers, already surrounded by a small group of friends."
-
-    # Placeholder for Anusha's sprite
-    # show anusha_sprite at left
-
-    an "Hey, [player_name]! Over here!"
-
-    "Anusha waves enthusiastically, her smile as bright as ever. She's always been the most outgoing of our group."
-
-    "A moment later, Ritesh walks up, a book in hand, looking a bit more reserved as usual."
-
-    # Placeholder for Ritesh's sprite
-    # show ritesh_sprite at right
-
-    ri "Morning, everyone. [player_name], did you finish the summer reading?"
-
-    "I have a choice to make. Do I join Anusha's lively group, or do I go talk to Ritesh about the book?"
-
-    menu:
-        "Go talk to Anusha":
-            jump highschool_day_1_anusha_path
-        "Go talk to Ritesh":
-            jump highschool_day_1_ritesh_path
-
-    return
-
 label classroom_intro:
-    scene bg_classroom with dissolve
-    show anusha uniform neutral at center
-
-    anusha "First day jitters? This seat's been empty all semester..."
+    scene bg classroom day
+    show anusha neutral at center
+    
+    anusha "Welcome to Calculus! This seat's been empty all semester..."
     samir "Mind if I...?"
-
+    
     menu:
         "Take the seat next to Anusha":
-            $ anusha_points += 1
+            $ change_affinity("anusha", +2)
             jump library_study_scene
-
         "Sit near the window alone":
-            $ ritesh_points += 1
+            $ change_affinity("rites", +1)
             jump cafeteria_intro
 
-label cafeteria_intro:
-    scene bg_cafeteria with fade
-    show ritesh uniform smile at center
-
-    ritesh "Saving seats is against school rules! Mind if I join you?"
-    samir "..."
-
+label act1_highschool_start:
+label exam_prep_scene:
+    scene bg classroom day
+    show anusha neutral at center
+    
+    anusha "Let's review the calculus problems together. I brought extra notes!"
+    
     menu:
-        "Slide over to make space":
-            $ ritesh_points += 2
-            jump sports_club_scene
-
-        "Pretend to be occupied":
-            $ nina_points += 1
+        "Study diligently with Anusha":
+            $ change_affinity("anusha", +2)
+            jump library_study_scene
+        "Pretend to understand and chat instead":
+            $ change_affinity("rites", +1)
             jump courtyard_scene
 
-label sports_club_scene:
-    scene bg_gymnasium with fade
-    show ritesh sports_uniform smile at center
-
-    ritesh "First years never last through warmups! Bet you can't handle 10 laps?"
-    samir "..."
-
+label rooftop_scene:
+    scene bg rooftop sunset
+    show nina thoughtful at right
+    
+    nina "Sometimes I come here to sketch the clouds. They're... transient, aren't they?"
+    
     menu:
-        "Accept the challenge":
-            $ ritesh_points += 3
-            jump festival_committee
-
-        "Politely decline":
-            $ nina_points += 1
-            jump music_room_scene
-
-label courtyard_scene:
-    scene bg_courtyard with dissolve
-    show nina uniform thoughtful at center
-
-    nina "That tree's been here since our parents' time... Makes you think, doesn't it?"
-    samir "..."
-
-    menu:
-        "Share a personal memory":
-            $ nina_points += 2
+        "Comment on the sunset beauty":
+            $ change_affinity("nina", +2)
             jump art_club_scene
+        "Make a joke about the height":
+            $ change_affinity("rites", +1)
+            jump sports_club_scene
 
-        "Change the subject":
-            $ anusha_points += 1
-            jump classroom_study_group
+label festival_committee:
+    scene bg auditorium
+    show anusha enthusiastic at left
+    show ritesh smirk at right
+    
+    anusha "We need proper planning for the cultural exhibition!"
+    ritesh "Relax, Asha. We've got the best team in school!"
+    
+    menu:
+        "Support Anusha's detailed approach":
+            $ change_affinity("anusha", +3)
+            jump festival_preparation
+        "Side with Ritesh's casual strategy":
+            $ change_affinity("rites", +3)
+            jump courtyard_scene
+        "Stay neutral about Nina's artistic flair":
+            $ change_affinity("nina", +1)
+            jump courtyard_scene
 
-label library_study_scene:
-    scene bg_library with fade
-    show anusha uniform glasses at center
+label cafeteria_intro:
+    scene bg cafeteria
+    show ritesh happy at left
 
-    anusha "This calculus problem has me stuck... Mind brainstorming together?"
-    samir "..."
+    ritesh "Hey, new face! Grab a seat. The food's terrible, but the company's great."
 
     menu:
-        "Work through it step-by-step":
-            $ anusha_points += 2
-            jump exam_prep_scene
-
-        "Suggest taking a break":
-            $ ritesh_points += 1
+        "Join Ritesh and his friends":
+            $ change_affinity("rites", +2)
+            jump sports_club_scene
+        "Find a quiet corner to eat alone":
+            $ change_affinity("nina", +1)
             jump rooftop_scene
 
-label art_club_scene:
-    scene bg_art_room with dissolve
-    show nina apron paintbrush at center
+label library_study_scene:
+    scene bg library
+    show anusha smiling at center
 
-    nina "This mural needs something... Maybe your perspective?"
-    samir "..."
+    anusha "I knew you'd make the right choice. Focus is key to success."
 
     menu:
-        "Add abstract elements":
-            $ nina_points += 3
-            jump gallery_visit
+        "Ask Anusha for help with a difficult problem":
+            $ change_affinity("anusha", +2)
+            jump exam_prep_scene
+        "Get distracted by a book on poetry":
+            $ change_affinity("nina", +1)
+            jump art_club_scene
 
-        "Keep traditional style":
-            $ anusha_points += 2
-            jump cultural_event
+label courtyard_scene:
+    scene bg courtyard
+    show ritesh smirk at left
+    show nina thoughtful at right
+
+    ritesh "See? Told you things would work out. Spontaneity beats stuffy plans any day."
+    nina "Or perhaps, a balance of both is ideal..."
+
+    menu:
+        "Agree with Ritesh's carefree attitude":
+            $ change_affinity("rites", +2)
+            jump sports_club_scene
+        "Contemplate Nina's point about balance":
+            $ change_affinity("nina", +2)
+            jump art_club_scene
+
+label sports_club_scene:
+    scene bg gym
+    show ritesh determined at center
+
+    ritesh "Alright, time for some real action! Let's see what you've got."
+
+    menu:
+        "Show off your athletic skills":
+            $ change_affinity("rites", +3)
+            jump festival_committee
+        "Struggle but show good sportsmanship":
+            $ change_affinity("anusha", +1)
+            jump festival_committee
+
+label art_club_scene:
+    scene bg art_room
+    show nina smiling at center
+
+    nina "You have an eye for beauty. It's not just about what you see, but how you see it."
+
+    menu:
+        "Ask Nina to teach you some techniques":
+            $ change_affinity("nina", +3)
+            jump festival_committee
+        "Praise her work sincerely":
+            $ change_affinity("anusha", +1)
+            jump festival_committee

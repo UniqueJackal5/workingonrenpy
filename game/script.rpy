@@ -12,14 +12,25 @@ define player = Character("Samir") # Default name, will be updated
 default player_name = "Samir"
 
 label start:
+    # Initialize affinity system
+    $ init_affinities()
+    
     # Initial setup
-    scene bg_highschool_exterior
-    "Freshman year begins..."
-    jump act1_highschool_intro
-
-label act1_highschool_intro:
-    call screen name_input
+    scene black
+    show text "Seasons of Us" with fade
+    pause 2
+    
+    # Start Act 1
+    jump act1_highschool
+    
+label act1_highschool:
     jump classroom_intro
+    
+label act1_festival_transition:
+    # After last high school scene
+    show bg school_exterior with dissolve
+    mc "The festival preparations gave me new insights..."
+    jump festival_preparation
 
 label act1_festival:
     call festival_preparation
@@ -31,11 +42,36 @@ label act1_festival:
         jump festival_wrapup
 
 label act1_transition:
-    # Shared post-festival scene
-    scene bg_school_gate
-    "As the semester ends..."
-    jump act2_college_intro
+    scene black with fade
+    play music "audio/ambient_piano.ogg" fadeout 1.0
+    show text "Years Later..." with dissolve
+    pause 2.0
+    
+    if anusha_points > 5:
+        show bg city_skyline with dissolve
+        mc "Anusha and I kept in touch through letters, her words becoming my anchor..."
+    elif rites_points > 5:
+        show bg football_field with dissolve
+        mc "Ritesh's relentless energy somehow carried me through those final exams..."
+    else:
+        show bg library with dissolve
+        mc "The quiet moments between classes became my sanctuary..."
+    
+    jump act2_college
 
+label act2_transition:
+    scene black with fade
+    show text "Graduation Day" with dissolve
+    pause 1.5
+    
+    show bg graduation with dissolve
+    mc "As I tossed my cap, I realized these connections had shaped who I'd become..."
+    
+    if persistent.ending_unlocked:
+        jump endings
+    else:
+        jump act3_adulthood
+    
     # This ends the game.
     return
 

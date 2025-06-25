@@ -1,18 +1,29 @@
+# Affinity ranges from -10 (dislike) to +10 (admiration)
+default persistent.anusha_affinity = 0
+default persistent.ritesh_affinity = 0
+default persistent.nina_affinity = 0
+default persistent.total_choices = 0
+
+default persistent.anusha_route_unlocked = False
+default persistent.ritesh_route_unlocked = False
+default persistent.nina_route_unlocked = False
+
 init python:
-    # Function to change character affinity points.
-    # character_name: The name of the character (e.g., "anusha", "ritesh", "nina").
-    # points: The number of points to add or subtract from the character's affinity.
-    def change_affinity(character_name, points):
-        if character_name == "anusha":
-            store.anusha_points += points
-        elif character_name == "ritesh":
-            store.ritesh_points += points
-        elif character_name == "nina":
-            store.nina_points += points
-        else:
-            # Log a warning if an unknown character's affinity is attempted to be changed.
-            renpy.log(f"Warning: Attempted to change affinity for unknown character: {character_name}")
-            return
+    def init_affinities():
+        # This function resets the values for a new game.
+        persistent.anusha_affinity = 0
+        persistent.ritesh_affinity = 0
+        persistent.nina_affinity = 0
+        persistent.total_choices = 0
         
-        # Log the affinity change for debugging purposes.
-        renpy.log(f"Affinity for {character_name} changed by {points}. New value: {getattr(store, character_name + '_points')}")
+        persistent.anusha_route_unlocked = False
+        persistent.ritesh_route_unlocked = False
+        persistent.nina_route_unlocked = False
+
+    def change_affinity(character, amount):
+        # Cap affinity between -10 and +10
+        current = getattr(persistent, f'{character}_affinity', 0)
+        new_value = max(-10, min(10, current + amount))
+        setattr(persistent, f'{character}_affinity', new_value)
+        
+        renpy.notify(f"{character.capitalize()}'s affinity changed by {amount} (Now: {new_value})")
