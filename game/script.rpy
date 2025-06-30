@@ -13,6 +13,8 @@ default player_name = "Samir"
 
 label start:
     $ init_affinities()
+    call screen name_input
+    $ player.name = player_name
     scene bg black
     show text "Seasons of Us" with fade
     pause 2

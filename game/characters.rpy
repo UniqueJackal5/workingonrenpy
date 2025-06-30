@@ -1,7 +1,6 @@
 # Define characters here
 
-define samir = Character("Samir")
-define samira = Character("Samira")
+define player = Character(player_name)
 define anusha = Character("Anusha")
 define an = anusha # Short name for Anusha
 define ritesh = Character("Ritesh")

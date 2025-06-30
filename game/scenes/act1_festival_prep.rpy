@@ -77,3 +77,4 @@ label food_prep_scene:
 label festival_continuation:
     scene bg_festival_night with dissolve
     "As the festival lights illuminate the night..."
+    jump act1_festival_continuation_start
