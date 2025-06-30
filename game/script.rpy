@@ -12,19 +12,19 @@ define player = Character("Samir") # Default name, will be updated
 default player_name = "Samir"
 
 label start:
-    # Initialize affinity system
     $ init_affinities()
-    
-    # Initial setup
-    scene black
+    scene bg black
     show text "Seasons of Us" with fade
     pause 2
+    # The game starts here.
+    # Show a background.
+    # scene bg room
+
+    # This shows a character sprite.
+    jump act1_highschool_start
     
-    # Start Act 1
-    jump act1_highschool
-    
-label act1_highschool:
-    jump classroom_intro
+
+
     
 label act1_festival_transition:
     # After last high school scene
