@@ -10,7 +10,7 @@ label classroom_intro:
             $ change_affinity("anusha", +2)
             jump library_study_scene
         "Sit near the window alone":
-            $ change_affinity("rites", +1)
+            $ change_affinity("ritesh", +1)
             jump cafeteria_intro
 
 label act1_highschool_start:
@@ -25,7 +25,7 @@ label exam_prep_scene:
             $ change_affinity("anusha", +2)
             jump library_study_scene
         "Pretend to understand and chat instead":
-            $ change_affinity("rites", +1)
+            $ change_affinity("ritesh", +1)
             jump courtyard_scene
 
 label rooftop_scene:
@@ -39,7 +39,7 @@ label rooftop_scene:
             $ change_affinity("nina", +2)
             jump art_club_scene
         "Make a joke about the height":
-            $ change_affinity("rites", +1)
+            $ change_affinity("ritesh", +1)
             jump sports_club_scene
 
 label festival_committee:
@@ -55,7 +55,7 @@ label festival_committee:
             $ change_affinity("anusha", +3)
             jump festival_preparation
         "Side with Ritesh's casual strategy":
-            $ change_affinity("rites", +3)
+            $ change_affinity("ritesh", +3)
             jump courtyard_scene
         "Stay neutral about Nina's artistic flair":
             $ change_affinity("nina", +1)
@@ -69,7 +69,7 @@ label cafeteria_intro:
 
     menu:
         "Join Ritesh and his friends":
-            $ change_affinity("rites", +2)
+            $ change_affinity("ritesh", +2)
             jump sports_club_scene
         "Find a quiet corner to eat alone":
             $ change_affinity("nina", +1)
@@ -99,7 +99,7 @@ label courtyard_scene:
 
     menu:
         "Agree with Ritesh's carefree attitude":
-            $ change_affinity("rites", +2)
+            $ change_affinity("ritesh", +2)
             jump sports_club_scene
         "Contemplate Nina's point about balance":
             $ change_affinity("nina", +2)
@@ -113,7 +113,7 @@ label sports_club_scene:
 
     menu:
         "Show off your athletic skills":
-            $ change_affinity("rites", +3)
+            $ change_affinity("ritesh", +3)
             jump festival_committee
         "Struggle but show good sportsmanship":
             $ change_affinity("anusha", +1)
