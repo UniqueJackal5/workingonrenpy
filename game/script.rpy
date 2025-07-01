@@ -1,5 +1,5 @@
 # The script of the game goes in this file.
-define player_name = "Player"
+
 
 
 
