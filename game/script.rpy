@@ -1,28 +1,25 @@
 # The script of the game goes in this file.
-
-
+define player_name = "Player"
 
 
 
 
 # The game starts here.
-
-# Define the player character and their name variable
-define player = Character("Samir") # Default name, will be updated
-default player_name = "Samir"
-
 label start:
-    $ init_affinities()
-    call screen name_input
-    $ player.name = player_name
-    scene bg black
-    show text "Seasons of Us" with fade
-    pause 2
-    # The game starts here.
     # Show a background.
-    # scene bg room
+    scene bg highschool_exterior
 
-    # This shows a character sprite.
+    # This ensures that the affinity system is initialized at the start of the game.
+    python:
+        init_affinity_system()
+
+    # Call the name input screen to allow the player to enter their name.
+    call screen name_input
+
+    # Display a dialogue.
+    player "Hello, world!"
+
+    # This is a placeholder jump to the high school scene.
     jump act1_highschool_start
     
 
