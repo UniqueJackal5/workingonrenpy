@@ -9,7 +9,7 @@ default persistent.ritesh_route_unlocked = False
 default persistent.nina_route_unlocked = False
 
 init python:
-    def init_affinities():
+    def init_affinity_system():
         # This function resets the values for a new game.
         persistent.anusha_affinity = 0
         persistent.ritesh_affinity = 0
