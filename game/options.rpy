@@ -1,3 +1,5 @@
+define player_name = "Player"
+
 ## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
@@ -5,9 +7,8 @@
 ## may want to uncomment them when appropriate.
 
 
-define player_name = "Player"
 
-## Basics ######################################################################
+## Screen and Window Management ################################################
 
 ## A human-readable name of the game. This is used to set the default window
 ## title, and shows up in the interface and error reports.
