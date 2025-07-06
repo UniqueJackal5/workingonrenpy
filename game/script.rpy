@@ -4,6 +4,8 @@
 
 
 
+default player_name = "Player"
+
 # The game starts here.
 label start:
     # Show a background.
@@ -14,13 +16,25 @@ label start:
         init_affinity_system()
 
     # Call the name input screen to allow the player to enter their name.
-    call screen name_input
+    $ player_name = renpy.call_screen("name_input")
 
     # Display a dialogue.
     player "Hello, world!"
 
+    menu:
+        "Go to the festival.":
+            jump act1_festival_start
+        "Stay home.":
+            player "I decided to stay home today."
+            jump end_game
+
+label act1_festival_start:
     # This is a placeholder jump to the high school scene.
     jump act1_highschool_start
+
+label end_game:
+    e "The game ends here for now."
+    return
     
 
 

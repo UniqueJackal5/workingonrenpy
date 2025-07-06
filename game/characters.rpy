@@ -1,6 +1,6 @@
 # Define characters here
 
-define player_name = "Player"
+
 define player = Character(player_name)
 define anusha = Character("Anusha")
 define an = anusha # Short name for Anusha
