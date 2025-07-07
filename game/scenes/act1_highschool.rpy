@@ -12,6 +12,30 @@ label act1_highschool_start:
     
     player "The class begins, and I try to focus, but my mind keeps wandering to the upcoming school festival."
     player "I wonder what Anusha and Ritesh are planning for it."
+    jump act1_daily_choices
+label act1_daily_choices:
+    scene bg highschool_hallway
+    player "What should I do next?"
+    menu:
+        "Study for exams with Anusha":
+            jump exam_prep_scene
+        "Hang out with Ritesh in the cafeteria":
+            jump cafeteria_intro
+        "Visit Nina on the rooftop":
+            jump rooftop_scene
+        "Help with festival preparations":
+            jump festival_committee
+        "Go to the library to study with Anusha":
+            jump library_study_scene
+        "Explore the courtyard":
+            jump courtyard_scene
+        "Join the sports club with Ritesh":
+            jump sports_club_scene
+        "Check out the art club with Nina":
+            jump art_club_scene
+        "Continue to next day":
+            jump act1_festival_transition
+
 label exam_prep_scene:
     scene bg classroom day
     show anusha neutral at center
@@ -23,6 +47,7 @@ label exam_prep_scene:
     player "I nod, trying to absorb as much as I can. Studying with Anusha always makes things clearer."
     
     player "After a productive study session, I feel a bit more confident about the upcoming exam."
+    jump act1_daily_choices
 
 label rooftop_scene:
     scene bg rooftop sunset
@@ -34,6 +59,7 @@ label rooftop_scene:
     player "I watch as she sketches, the soft colors of the sunset reflecting in her eyes."
     nina "Every line tells a story, don't you think? Even the ones that fade away."
     player "Her words resonate with me, a quiet moment of shared understanding on the rooftop."
+    jump act1_daily_choices
 
 label festival_committee:
     scene bg auditorium
@@ -47,6 +73,7 @@ label festival_committee:
     player "I listen as they debate, each presenting valid points for how to organize the upcoming cultural exhibition."
     player "Ultimately, they reach a compromise, blending Anusha's detailed schedule with Ritesh's flexible approach."
     player "It seems the festival is in good hands, despite their differing styles."
+    jump act1_daily_choices
 
 label cafeteria_intro:
     scene bg cafeteria
@@ -58,6 +85,7 @@ label cafeteria_intro:
     player "I join Ritesh and his friends, who are already deep in conversation about the latest video game. Their laughter fills the air."
     player "Even though the food might be questionable, the lively atmosphere and good company make lunch enjoyable."
     player "It's nice to have a place where I can just relax and be myself."
+    jump act1_daily_choices
 
 label library_study_scene:
     scene bg library
@@ -69,6 +97,7 @@ label library_study_scene:
     player "We spend the next hour poring over textbooks, Anusha patiently explaining complex concepts."
     player "Her dedication is inspiring, and I find myself understanding things I struggled with before."
     player "The quiet hum of the library and the shared focus create a comfortable atmosphere."
+    jump act1_daily_choices
 
 label courtyard_scene:
     scene bg courtyard
@@ -82,6 +111,7 @@ label courtyard_scene:
     player "I listen as they playfully debate, their different perspectives somehow complementing each other."
     player "The sun shines down on the courtyard, a perfect backdrop for their lively discussion."
     player "It's moments like these that make high school interesting, seeing how different people navigate the world."
+    jump act1_daily_choices
 
 label sports_club_scene:
     scene bg gym
@@ -93,6 +123,7 @@ label sports_club_scene:
     player "I watch as Ritesh effortlessly completes another lap, his determination clear in every stride."
     player "The air is thick with the scent of sweat and effort, a testament to the hard work being put in."
     player "It's inspiring to see such dedication, and it makes me want to push my own limits."
+    jump act1_daily_choices
 
 label art_club_scene:
     scene bg art_room
@@ -104,3 +135,4 @@ label art_club_scene:
     player "I watch as Nina works on her latest piece, her hands moving with a delicate precision."
     player "The art room is filled with the scent of paint and creativity, a peaceful sanctuary."
     player "Her passion for art is evident in every brushstroke, and it's a privilege to witness her creative process."
+    jump act1_daily_choices
