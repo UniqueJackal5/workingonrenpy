@@ -21,6 +21,20 @@ label start:
     # Display a dialogue.
     player "Hello, world!"
 
+    # Introduce the high school setting and initial thoughts
+    scene bg highschool_exterior with dissolve
+    player "It's another typical morning at Northwood High. The air is buzzing with the usual mix of excitement and dread."
+    player "I guess that's just how high school feels, right?"
+
+    # Introduce a character or a thought about the day
+    player "Today feels different though. Like something significant is about to happen."
+    player "Maybe it's just the start of a new semester, or maybe... something more."
+
+    player "The hallways are already bustling with students, a symphony of lockers clanging and distant laughter."
+    player "I spot Anusha by her locker, already surrounded by a small group, her bright smile a beacon in the crowd."
+    player "And there's Ritesh, probably already deep in conversation about the latest tech or a new game strategy."
+    player "It's going to be another interesting day, I can feel it."
+
     jump act1_highschool_start
     
 
