@@ -78,4 +78,4 @@ label festival_post_encounter:
 
 label act1_festival_continuation_end:
     "The festival concludes."
-    return
+    jump act1_transition
