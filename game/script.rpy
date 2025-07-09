@@ -48,6 +48,7 @@ label act1_festival_transition:
 
 label act1_festival:
     call festival_preparation
+    call act1_festival_continuation_start
     if anusha_points >= 3:
         jump cultural_bonding
     elif ritesh_points >= 3:
