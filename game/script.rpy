@@ -64,7 +64,7 @@ label act1_transition:
     
     if anusha_points > 5:
         show bg city_skyline with dissolve
-        mc "Anusha and I kept in touch through , her words becoming my anchor..."
+        mc "Anusha and I kept in touch through letter, her words becoming my anchor..."
     elif rites_points > 5:
         show bg football_field with dissolve
         mc "Ritesh's relentless energy somehow carried me through those final exams..."
