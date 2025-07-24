@@ -2,6 +2,7 @@
 
 
 define player = Character("Player")
+define mc = player
 define anusha = Character("Anusha")
 define an = anusha # Short name for Anusha
 define ritesh = Character("Ritesh")
