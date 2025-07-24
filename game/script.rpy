@@ -72,7 +72,7 @@ label act1_transition:
         show bg library with dissolve
         mc "The quiet moments between classes became my sanctuary..."
     
-    jump act2_college
+    call act2_college
 
 label act2_transition:
     scene black with fade
@@ -85,10 +85,7 @@ label act2_transition:
     if persistent.ending_unlocked:
         jump endings
     else:
-        jump act3_adulthood
-    
-    # This ends the game.
-    return
+        call act3_adulthood
 
 screen name_input():
     modal True
