@@ -42,7 +42,7 @@ label start:
     
 label act1_festival_transition:
     # After last high school scene
-    show bg school_exterior with dissolve
+    show bg highschool_exterior with dissolve
     mc "The festival preparations gave me new insights..."
     jump festival_preparation
 
